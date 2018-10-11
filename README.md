@@ -8,7 +8,7 @@
 
 # Installation
 
-Put this file(story) into `{veripress}/themes`. After this, change `THEME` in `config.py` to `'story'` to use it.
+Put this file(story) into `{veripress}/themes`.
 
 OR
 
@@ -16,13 +16,15 @@ OR
 $ veripress theme install txperl/Story-for-VeriPress —name story
 ```
 
+After this, change `THEME` in `config.py` to `story` to use it.
+
 P.s. The name of the file must be `story`.
 
 P.s. Test only in `MODE=view-only`.
 
 P.s. Visit [Story-for-Typecho](https://github.com/txperl/Story-for-Typecho) for more details of using (except config).
 
-# Lience
+# License
 - [Story-for-Typecho](https://github.com/txperl/Story-for-Typecho) by Trii Hsia
 - [Design of home page](https://github.com/artchen/hexo-theme-element) by Art Chen (licensed)
 
