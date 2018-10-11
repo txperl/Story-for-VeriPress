@@ -11,7 +11,9 @@
 Put this file(story) into `{verpress}/themes`. After this, change `THEME` in `config.py` to `'story'` to use it.
 
 P.s. The name of the file must be `story`.
+
 P.s. Test only in `MODE=view-only`.
+
 P.s. Visit [Story-for-Typecho](https://github.com/txperl/Story-for-Typecho) for more details of using (except config).
 
 # Lience
