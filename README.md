@@ -10,6 +10,12 @@
 
 Put this file(story) into `{veripress}/themes`. After this, change `THEME` in `config.py` to `'story'` to use it.
 
+OR
+
+'''sh
+$ veripress theme install txperl/Story-for-VeriPress —name story
+'''
+
 P.s. The name of the file must be `story`.
 
 P.s. Test only in `MODE=view-only`.
