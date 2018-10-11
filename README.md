@@ -8,7 +8,7 @@
 
 # Installation
 
-Put this file(story) into `{verpress}/themes`. After this, change `THEME` in `config.py` to `'story'` to use it.
+Put this file(story) into `{veripress}/themes`. After this, change `THEME` in `config.py` to `'story'` to use it.
 
 P.s. The name of the file must be `story`.
 
