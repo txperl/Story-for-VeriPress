@@ -1,0 +1,36 @@
+{% if entry.created or entry.updated or entry.categories or entry.tags %}
+  <div class="post-meta">
+    <p>
+    <span>Written by {{ site.author }} with ♥ </span>
+    {% if entry.created %}
+      <span>on </span>
+        <time datetime="{{ entry.created.strftime('%b %d, %Y') }}">{{ entry.updated.strftime('%b %d, %Y') }}</time>
+    {% endif %}
+    {%- if entry.updated and entry.updated != entry.created -%}
+      {%- if entry.created -%}
+        <span>，</span>
+      {%- endif -%}
+      <span>(updated on </span>
+        <time datetime="{{ entry.updated.strftime('%Y-%m-%d') }}">{{ entry.updated.strftime('%Y-%m-%d') }}</time>
+        <span>)</span>
+    {% endif %}
+    {% if entry.categories %}
+      <span>in </span>
+        {%- for category in entry.categories -%}
+          {%- if loop.index > 1 -%}
+            <span>, </span>
+          {%- endif -%}
+          <a href="{{ url_for('.category', category_name=category) }}">{{ category }}</a>
+        {%- endfor -%}
+    {% endif %}
+    </p>
+  </div>
+{% endif %}
+
+{% if not entry.created and not entry.updated and not entry.categories and not entry.tags %}
+  <div class="post-meta">
+    <p>
+      <span>#Page</span>
+    </p>
+  </div>
+{% endif %}

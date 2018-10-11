@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  <title>{{ archive_name + ' - ' + archive_type + ' - ' + site.title }}</title>
+{% endblock %}
+
+{% block main %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="archive-header">
+        <span>- {{ archive_type }} · {{ archive_name }} -</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="main" role="main">
+        <ul class="post-list clearfix">
+          {% if not entries %}
+            <br><br>
+            <h2 class="post-title"><center>(´°̥̥̥̥̥̥̥̥ω°̥̥̥̥̥̥̥̥｀) 什么都没有找到唉...</center></h2>
+          {% else %}
+          {% for entry in entries %}
+            <li class="post-item grid-item" itemscope itemtype="http://schema.org/BlogPosting">
+              <a class="post-link" href="{{ entry.url }}">
+                <h3 class="post-title"><time class="index-time" datetime="{{ entry.created.strftime('%b %d, %Y') if entry.created else '' }}" itemprop="datePublished">{{ entry.created.strftime('%b %d, %Y') if entry.created else '' }}</time><br>{{ entry.title }}</h3>
+                {% include ['custom/meta.html', 'metaind.html'] ignore missing %}
+              </a>
+            </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

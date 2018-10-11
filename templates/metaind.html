@@ -1,0 +1,12 @@
+{% if entry.created or entry.updated or entry.categories or entry.tags %}
+  <div class="post-meta">
+    {% if entry.categories %}
+      {%- for category in entry.categories -%}
+        {%- if loop.index > 1 -%}
+          <span>, </span>
+        {%- endif -%}
+         {% print(category.lower()) %}
+        {%- endfor -%}
+    {% endif %}
+  </div>
+{% endif %}

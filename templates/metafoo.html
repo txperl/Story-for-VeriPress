@@ -1,0 +1,17 @@
+{% if entry.created or entry.updated or entry.categories or entry.tags %}
+  <div style="display:block;margin-bottom:2em;" class="clearfix">
+    <section style="float:left;">
+      <span>tag(s): </span>
+      {%- for tag in entry.tags -%}
+        {%- if loop.index > 1 -%}
+          <span>, </span>
+        {%- endif -%}
+          <a href="{{ url_for('.tag', tag_name=tag) }}">{% print(tag.lower()) %}</a>
+      {%- endfor -%}
+    </section>
+    <section style="float:right;">
+        <span><a id="btn-comments" href="javascript:isComments();">show comments</a></span> · <span><a href="javascript:goBack();">back</a></span> · 
+        <span><a href="{{ url_for('.index') }}">home</a></span>
+    </section>
+  </div>
+{% endif %}

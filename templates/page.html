@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  <title>{{ entry.title + ' - ' + site.title }}</title>
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+  <div class="row">
+      <div id="main" class="col-12 clearfix" role="main">
+          <article class="posti" itemscope itemtype="http://schema.org/BlogPosting" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
+              <h1 class="post-title" itemprop="name headline">{{ entry.title }}</h1>
+
+              {% include ['custom/meta.html', 'meta.html'] ignore missing %}
+
+              <div class="post-content" itemprop="articleBody">
+                <div id="block_tor"></div>
+                {{ entry.content|safe }}
+              </div>
+
+              {% include ['custom/meta.html', 'metafoo.html'] ignore missing %}
+              
+              {% include ['custom/discuss-thread.html', 'discuss-thread.html'] ignore missing %}
+          </article>
+      </div>
+  </div>
+</div>
+{% endblock %}

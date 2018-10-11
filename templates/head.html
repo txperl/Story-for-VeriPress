@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="cleartype" content="on">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ url_for('.feed') }}"/>
+
+<!-- Link common CSS and JavaScript files -->
+<link href="https://lib.baomitu.com/twitter-bootstrap/4.0.0/css/bootstrap.min.css"rel=" stylesheet">
+<link href="{{ url_for('static', filename='css/highlight.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/zoom.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+<!-- Set favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicons/favicon-32x32.png') }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicons/favicon-16x16.png') }}" sizes="16x16">
+<link rel="manifest" href="{{ url_for('static', filename='favicons/manifest.json') }}">
+<link rel="mask-icon" href="{{ url_for('static', filename='favicons/safari-pinned-tab.svg') }}" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">

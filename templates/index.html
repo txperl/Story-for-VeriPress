@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  {% if request.path == '/' %}
+    <title>{{ site.title }}</title>
+  {% else %}
+    <title>{{ 'Page ' + request.path.rstrip('/').rsplit('/', 1)[-1] + ' - ' + site.title }}</title>
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+  <div class="container-fluid">
+    <div class="row">
+      <div id="main" role="main">
+        <ul class="post-list clearfix">
+  {% if not entries %}
+				  <li class="post-item grid-item" itemscope itemtype="http://schema.org/BlogPosting">
+					  <a class="post-link" href="#">
+						  <h3 class="post-title">Nothing here...</h3>
+						  <div class="post-meta">wqw</div>
+					  </a>
+				  </li>
+  {% endif %}
+  {% for entry in entries %}
+          <li class="post-item grid-item" itemscope itemtype="http://schema.org/BlogPosting" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
+            <a class="post-link" href="{{ entry.url }}">
+              <h3 class="post-title"><time class="index-time" datetime="{{ entry.created.strftime('%b %d, %Y') }}" itemprop="datePublished">{{ entry.created.strftime('%b %d, %Y') }}</time><br>{{ entry.title }}</h3>
+              {% include ['custom/meta.html', 'metaind.html'] ignore missing %}
+            </a>
+          </li>
+  {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="nav-page">
+    {% if prev_url or next_url %}
+      <ol class="page-navigator">
+        {% if next_url %}
+          <li class="previous">
+            <a href="{{ next_url }}">«</a>
+          </li>
+        {% else %}
+          <li class="previous disops">
+            <a href="javascript:0;">«</a>
+          </li>
+        {% endif %}
+          <li><a id="nav-middle" style="pointer-events: none;cursor: default;font-weight: 600;">-</a></li>
+        {% if prev_url %}
+          <li class="next">
+            <a href="{{ prev_url }}">»</a>
+          </li>
+          {% else %}
+          <li class="previous disops">
+            <a href="javascript:0;">»</a>
+          </li>
+        {% endif %}
+        </ol>
+    {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
