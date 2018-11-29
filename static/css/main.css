@@ -83,7 +83,7 @@ body:before {
     content: '';
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.05;
     position: fixed;
     top: 0;
     left: 0;
@@ -204,28 +204,6 @@ blockquote p, blockquote pre {
 }
 blockquote ul, blockquote ol {
     margin: 0 0 0 2em !important;
-}
-pre {
-    font-size: 13px;
-    line-height: 1.375;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    background: #f9f9f9;
-    color: #5e6687;
-    border-radius: 3px;
-    padding: 1em;
-    margin: 0 0 2em 0;
-    overflow: auto;
 }
 #main {
     width: 100%;
@@ -673,11 +651,6 @@ pre {
 }
 #torTree .torii:before {
     content: '& ';
-}
-.disops {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
 }
 .cPlayer img {
     max-width: 100%;
