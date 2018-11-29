@@ -61,14 +61,10 @@
 
     //jQuery
     $('#menu-search').keyup(function(event){
-        var keywrods=$('#menu-search').val();
-        var root_url='{{ site.root_url }}';
-        if (event.keyCode=='13' && keywrods!='') {
+        var keyword=$('#menu-search').val();
+        if (event.keyCode === 13 && keyword !== '') {
             event.preventDefault();
-            //回车执行
-            root_url=root_url.replace('https://','');
-            root_url=root_url.replace('http://','');
-            window.open("https://www.google.com/#q=site%3A"+root_url+"%20"+keywrods);
+            location.href = "{{ url_for('.search') }}" + "?q=" + keyword;
         }
     });
 
